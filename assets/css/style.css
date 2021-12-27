@@ -1,0 +1,62 @@
+/* universal selector reset */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* color variables */
+:root {
+    --dark: rgb(9, 61, 44);
+    --light: rgb(176, 236, 199);
+}
+
+/* reset default link styling */
+.link {
+    text-decoration: none;
+    color: var(--light);
+}
+
+/* reset default link styling */
+.link:visited {
+    text-decoration: none;
+    color: var(--light);
+}
+
+/* hover effect */
+.link:hover {
+    color: white;
+}
+
+header {
+    padding: 20px;
+    background-color: var(--dark);
+}
+
+main {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 54px;
+}
+
+main section {
+    margin-top: 70px;
+}
+
+#playButton {
+    background-color: var(--dark);
+    padding: 20px;
+    font-size: 36px;
+    border-radius: 15px;
+}
+
+/* STYLING FOR game.html STARTS HERE */
+#timer {
+    float: right;
+}
+
