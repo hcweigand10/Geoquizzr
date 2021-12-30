@@ -5,17 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>geoQuizzr</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/x-icon" href="https://clipground.com/images/cartoon-earth-png-9.jpg"></head>
 <body>
     <header>
-        <a class="link" id="view-highscores" href="./assets/html/highschores.html">View Highscores</a>
-        
+        <a id="view-highscores" class="link" href="/Users/user/code/homeworks/code-quiz/assets/html/highscores.html">View Highscores</a>
+        <a class="link" href="/">Home</a>    
     </header>
     <main>
-        <section id="question">
-            <h4></h4>
+        <section id="prompts">
+            <h3 id="qNumber">x</h3>
+            <h2 id="question"></h2>
+            <h4 id="sub-prompt"></h4>
+        </section>
+        <section id="choices">     
+            <button id="button1"></button>
+            <button id="button2"></button>
+            <button id="button3"></button>
+            <button id="button4"></button>
+        </section>
+        <section>
+            <h3 id="timer"></h3>
+        </section>
+        <section id="alert">
+            <h3></h3>
         </section>
     </main>
+    <script src="../js/gameScript.js"></script>
 </body>
 </html>
