@@ -1,13 +1,26 @@
 var questionsMap = new Map([
     ["How many countries does China border?", ["14", "12", "13", "11"]], 
-    ["What is the deepest lake in the world?", ["Lake Baikal", "Crater Lake", "Lake Superior", "Caspian See"]],
+    ["What is the deepest lake in the world?", ["Lake Baikal", "Crater Lake", "Lake Superior", "Caspian Sea"]],
     ["Which one of the following South American countries is landlocked?", ["Paraguay", "Uruguay", "Equador", "Peru"]],
     ["Which one of the following European countries is double-landlocked (all of its neighbors are also landlocked)?", ["Liechtenstein", "Andorra", "Luxembourg", "Slovakia"]],
     ["What is the capital of Switzerland?", ["Bern", "Zurich", "Geneva", "Basel"]],
     ["What portion of the world's population lives in the Southern Hemisphere?", ["12%", "16%", "20%", "8%"]],
     ["Which of the following countries does NOT have penguins?", ["Madagascar", "Ecuador", "Australia", "Urugauy"]],
-    ["What portion of Africa's landmass is in the northern hemisphere?", ["60-70%", "50-60%", "40-50%", "30-40%"]]
-    
+    ["What portion of Africa's landmass is in the northern hemisphere?", ["60-70%", "50-60%", "40-50%", "30-40%"]],
+    ["Kinshasa is the capital of what African nation?", ["Democratic Republic of the Congo", "Uganda", "Tanzania", "Zimbabwe"]],
+    ["Which of the following countries does NOT share a border with Russia?", ["Sweden", "Finland", "Norway", "Estonia"]],
+    ["Which country is home to the northernmost point in Africa?", ["Tunisia", "Egypt", "Morocco", "Algeria"]],
+    ["Which of the following countries does not contain the equator?", ["Venezuela", "Brazil", "Colombia", "Ecuador"]],
+    ["What is the only country with a non-quadrilateral flag?", ["Nepal", "Lebanon", "Senegal", "Madagascar"]],
+    ["Which of the following countries does NOT have coastline on both the Pacific AND Atlantic Oceans?", ["El Salvador", "Honduras", "Nicaragua", "Guatemala"]],
+    ["Which capital city is closest to New Orleans?", ["Havana, Cuba", "Nassau, Bahamas", "Washington, D.C.", "Mexico City, Mexico"]],
+    ["What country has the largest population in Europe (excluding Turkey)?", ["Germany", "France", "United Kingdom", "Italy"]],
+    ["Russia borders all of the following seas EXCEPT _______?", ["North Sea", "Baltic Sea", "Caspian Sea", "Black Sea"]],
+    ["Which city is farthest East?", ["Lima, Peru", "Quito, Ecuador", "Havana, Cuba", "Miama, USA"]],
+    ["Which of the following countries does NOT control part of the SE-Asian-island Borneo?", ["Papua New Guinea", "Brunei", "Malaysia", "Indonesia"]],
+    ["Dhaka is the capital of which country?", ["Bangladesh", "Nepal", "Laos", "Myanmar"]],
+    ["What is the capital of Ghana?", ["Accra", "Dakar", "Lagos", "Abuja"]],
+    ["What is the approximate ratio of Kangaroos:Humans in Australia?", ["2:1", "1:1", "1:2", "10:1 (but only in NT)"]]
 ]);
 
 // global variables
@@ -40,7 +53,7 @@ function compare(selection) {
     // on wrong answer sets font color to red, says 'Nope!, and deducts 10 seconds from the timer'
     document.getElementById("alert").setAttribute ("style", "color: red; opacity: 0.6"); 
     document.getElementById("alert").textContent = "Nope!";
-    secondsLeft -= 10;
+    secondsLeft -= 3;
     setTimeout(() => { 
       document.getElementById("alert").textContent = "";
     }, 750);
@@ -69,10 +82,8 @@ function loadQuestion() {
     question = Array.from(questionsMap.keys())[qNumber-1];
     document.getElementById("qNumber").textContent = "Question #" + qNumber;
     document.getElementById("question").textContent = question;
-    qNumber++;
     // get answers
     answers = questionsMap.get(question);
-    console.log(answers);
     // shuffle choices
     var shuffledAnswers = answers.slice(0);
     shuffleArray(shuffledAnswers);
@@ -80,6 +91,8 @@ function loadQuestion() {
     for (let i = 0; i < 4; i++) {
       document.getElementById("button"+(i+1)).textContent = shuffledAnswers[i]; 
     }
+    // tick qNumber
+    qNumber++;
   }
 }
 
