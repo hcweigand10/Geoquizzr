@@ -63,17 +63,6 @@ function compare(selection) {
   loadQuestion();
 }
 
-// durstendfeld shuffle from stackoverflow
-function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-  }
-  return array;
-}
-
 function loadQuestion() {
   // end game after last q
   if (qNumber > questionsMap.size) {
@@ -95,6 +84,17 @@ function loadQuestion() {
     // tick qNumber
     qNumber++;
   }
+}
+
+// durstendfeld shuffle from stackoverflow
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+  }
+  return array;
 }
 
 function setTime(time) {

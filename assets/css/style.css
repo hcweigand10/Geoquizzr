@@ -107,22 +107,50 @@ main {
 }
 
 /* styling for highscores */
-#rankings {
-    width: 300px;
+.rankings {
+    width: 400px;
     margin: auto;
+    font-size: 24px;
+    text-align: left;
+}
+
+.rankings h3 {
+    font-size: 20px;
+}
+
+/* make score float right */
+.span {
+    float: right;
+}
+
+/* left and right borders to distinguish top 3 scores and even out the rest */
+.rankings li {
+    border-left: 10px solid white;
+    border-right: 10px solid white;
+
 }
 
 #li0 {
-    background-color: gold;
+    border-left: 10px solid gold;
+    border-right: 10px solid gold;
 }
 
 #li1 {
-    background-color: silver;
+    border-left: 10px solid silver;
+    border-right: 10px solid silver;
+
 }
 
 #li2 {
-    background-color: rgb(207, 98, 98);
-    
+    border-left: 10px solid rgb(207, 98, 98);    
+    border-right: 10px solid rgb(207, 98, 98);    
+}
+
+/* diff background color for every other entry to improve readabilty */
+.evenLI {
+    background-color: var(--light);
+    border-left: 10px solid var(--light);
+    border-left: 10px solid var(--light);
 }
 
 /* mobile layout */
@@ -144,5 +172,12 @@ main {
     }
     #question {
         font-size: 24px;
+    }
+    #timer {
+        font-size: 16px;
+    }
+    #alert {
+        font-size: 16px;
+        margin: 20px;
     }
 }
