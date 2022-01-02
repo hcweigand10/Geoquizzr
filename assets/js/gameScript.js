@@ -31,6 +31,7 @@ var answers = [];
 var secondsLeft;
 var timerInterval;
 var highScores = [];
+var totalQuestions = questionsMap.size;
 
 // run compare function on click of the answer buttons
 for (let i = 0; i < 4; i++) {
@@ -70,7 +71,7 @@ function loadQuestion() {
   } else {
     // set question# and get question from map
     question = Array.from(questionsMap.keys())[qNumber-1];
-    document.getElementById("qNumber").textContent = "Question #" + qNumber;
+    document.getElementById("qNumber").textContent = "Question #" + qNumber + " out of " + totalQuestions;
     document.getElementById("question").textContent = question;
     // get answers
     answers = questionsMap.get(question);
