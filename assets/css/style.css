@@ -127,7 +127,10 @@ main {
 .rankings li {
     border-left: 10px solid white;
     border-right: 10px solid white;
+}
 
+.rankings li:before {
+    background-color: red;
 }
 
 #li0 {

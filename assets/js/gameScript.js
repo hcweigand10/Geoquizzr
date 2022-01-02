@@ -68,13 +68,13 @@ function loadQuestion() {
   if (qNumber > questionsMap.size) {
     endGame();
   } else {
-    // set question and number
+    // set question# and get question from map
     question = Array.from(questionsMap.keys())[qNumber-1];
     document.getElementById("qNumber").textContent = "Question #" + qNumber;
     document.getElementById("question").textContent = question;
     // get answers
     answers = questionsMap.get(question);
-    // shuffle choices
+    // first copy answers, then shuffle choices
     var shuffledAnswers = answers.slice(0);
     shuffleArray(shuffledAnswers);
     // put choices in the buttons
@@ -151,7 +151,7 @@ function getInitials() {
   submit.setAttribute("value", "Submit");
   submit.setAttribute("style", "margin: 10px");
   section.appendChild(submit);
-  // call function for submit button
+  // call function for submit button actions
   submitEvent(initialsInput, submit);
 }
 
@@ -159,14 +159,13 @@ function submitEvent(initialsInput, submit) {
   // add submit event
   submit.addEventListener("click", function(event) {
     event.preventDefault();
-    console.log("submit was clicked");
-    var initials = JSON.stringify(initialsInput.value.trim());
-    // Return from function early if submitted todoText is blank
+    var initials = (initialsInput.value.trim());
+    // Return from function early if submitted initials are blank
     if (initials === "") {
+      alert("Initials can't be blank");
       return;
     }
     var newScore = [initials, secondsLeft];
-    console.log(newScore);
     localStorage.setItem("newScore", JSON.stringify(newScore));
     window.location.href = "../html/highscores.html"
   });
