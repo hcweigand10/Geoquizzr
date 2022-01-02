@@ -12,14 +12,14 @@ var questionsMap = new Map([
     // ["Which country is home to the northernmost point in Africa?", ["Tunisia", "Egypt", "Morocco", "Algeria"]],
     // ["Which of the following countries does not contain the equator?", ["Venezuela", "Brazil", "Colombia", "Ecuador"]],
     // ["What is the only country with a non-quadrilateral flag?", ["Nepal", "Lebanon", "Senegal", "Madagascar"]],
-    // ["Which of the following countries does NOT have coastline on both the Pacific AND Atlantic Oceans?", ["El Salvador", "Honduras", "Nicaragua", "Guatemala"]],
-    // ["Which capital city is closest to New Orleans?", ["Havana, Cuba", "Nassau, Bahamas", "Washington, D.C.", "Mexico City, Mexico"]],
-    // ["What country has the largest population in Europe (excluding Turkey)?", ["Germany", "France", "United Kingdom", "Italy"]],
-    // ["Russia borders all of the following seas EXCEPT _______?", ["North Sea", "Baltic Sea", "Caspian Sea", "Black Sea"]],
-    // ["Which city is farthest East?", ["Lima, Peru", "Quito, Ecuador", "Havana, Cuba", "Miami, USA"]],
-    // ["Which of the following countries does NOT control part of the SE-Asian-island Borneo?", ["Papua New Guinea", "Brunei", "Malaysia", "Indonesia"]],
-    // ["Dhaka is the capital of which country?", ["Bangladesh", "Nepal", "Laos", "Myanmar"]],
-    // ["What is the capital of Ghana?", ["Accra", "Dakar", "Lagos", "Abuja"]],
+    ["Which of the following countries does NOT have coastline on both the Pacific AND Atlantic Oceans?", ["El Salvador", "Honduras", "Nicaragua", "Guatemala"]],
+    ["Which capital city is closest to New Orleans?", ["Havana, Cuba", "Nassau, Bahamas", "Washington, D.C.", "Mexico City, Mexico"]],
+    ["What country has the largest population in Europe (excluding Turkey)?", ["Germany", "France", "United Kingdom", "Italy"]],
+    ["Russia borders all of the following seas EXCEPT _______?", ["North Sea", "Baltic Sea", "Caspian Sea", "Black Sea"]],
+    ["Which city is farthest East?", ["Lima, Peru", "Quito, Ecuador", "Havana, Cuba", "Miami, USA"]],
+    ["Which of the following countries does NOT control part of the SE-Asian-island Borneo?", ["Papua New Guinea", "Brunei", "Malaysia", "Indonesia"]],
+    ["Dhaka is the capital of which country?", ["Bangladesh", "Nepal", "Laos", "Myanmar"]],
+    ["What is the capital of Ghana?", ["Accra", "Dakar", "Lagos", "Abuja"]],
     ["What is the approximate ratio of Kangaroos:Humans in Australia?", ["2:1", "1:1", "1:2", "10:1 (but only in NT)"]]
 ]);
 
