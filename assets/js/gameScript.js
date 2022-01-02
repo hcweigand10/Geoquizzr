@@ -53,7 +53,7 @@ function compare(selection) {
     // on wrong answer sets font color to red, says 'Nope!, and deducts 10 seconds from the timer'
     document.getElementById("alert").setAttribute ("style", "color: red; opacity: 0.6"); 
     document.getElementById("alert").textContent = "Nope!";
-    secondsLeft -= 20;
+    secondsLeft -= 15;
     // has alert disappear after 1 second
     setTimeout(() => { 
       document.getElementById("alert").textContent = "";
@@ -171,5 +171,6 @@ function submitEvent(initialsInput, submit) {
   });
 }
 
+// gets game started
 loadQuestion();
-setTime(240);
+setTime(600);
