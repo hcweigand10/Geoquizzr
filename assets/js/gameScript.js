@@ -168,7 +168,7 @@ function submitEvent(initialsInput, submit) {
     var newScore = [initials, secondsLeft];
     console.log(newScore);
     localStorage.setItem("newScore", JSON.stringify(newScore));
-    // window.location.href = "../html/highscores.html"
+    window.location.href = "../html/highscores.html"
   });
 }
 
