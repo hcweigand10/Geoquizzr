@@ -159,7 +159,7 @@ function submitEvent(initialsInput, submit) {
   // add submit event
   submit.addEventListener("click", function(event) {
     event.preventDefault();
-    var initials = (initialsInput.value.trim());
+    var initials = (initialsInput.value.toUpperCase());
     // Return from function early if submitted initials are blank
     if (initials === "") {
       alert("Initials can't be blank");
