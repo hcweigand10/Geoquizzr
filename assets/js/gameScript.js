@@ -53,7 +53,7 @@ function compare(selection) {
     // on wrong answer sets font color to red, says 'Nope!, and deducts 10 seconds from the timer'
     document.getElementById("alert").setAttribute ("style", "color: red; opacity: 0.6"); 
     document.getElementById("alert").textContent = "Nope!";
-    secondsLeft -= 10;
+    secondsLeft -= 20;
     // has alert disappear after 1 second
     setTimeout(() => { 
       document.getElementById("alert").textContent = "";

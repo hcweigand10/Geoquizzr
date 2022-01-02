@@ -172,6 +172,7 @@ main {
     }
     header {
         padding: 20px;
+        margin-bottom: 30px;
     }
     #playButton {
         font-size: 24px;
