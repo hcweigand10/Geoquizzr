@@ -172,7 +172,7 @@ main {
     }
     header {
         padding: 20px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
     #playButton {
         font-size: 24px;
@@ -186,7 +186,7 @@ main {
     }
     #alert {
         font-size: 16px;
-        margin: 15px;
+        margin: 10px;
     }
     .rankings {
         width: 80%;
