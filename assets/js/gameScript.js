@@ -1,36 +1,36 @@
 var questionsMap = new Map([
     ["How many countries does China border?", ["14", "12", "13", "11"]], 
-    ["What is the deepest lake in the world?", ["Lake Baikal", "Crater Lake", "Lake Superior", "Caspian Sea"]],
-    ["Which one of the following South American countries is landlocked?", ["Paraguay", "Uruguay", "Equador", "Peru"]],
-    ["Which one of the following European countries is double-landlocked (all of its neighbors are also landlocked)?", ["Liechtenstein", "Andorra", "Luxembourg", "Slovakia"]],
-    ["What is the capital of Switzerland?", ["Bern", "Zurich", "Geneva", "Basel"]],
-    ["What portion of the world's population lives in the Southern Hemisphere?", ["12%", "16%", "20%", "8%"]],
-    ["Which of the following countries does NOT have penguins?", ["Madagascar", "Ecuador", "Australia", "Urugauy"]],
-    ["What portion of Africa's landmass is in the northern hemisphere?", ["60-70%", "50-60%", "40-50%", "30-40%"]],
-    ["Kinshasa is the capital of what African nation?", ["Democratic Republic of the Congo", "Uganda", "Tanzania", "Zimbabwe"]],
-    ["Which of the following countries does NOT share a border with Russia?", ["Sweden", "Finland", "Norway", "Estonia"]],
-    ["Which country is home to the northernmost point in Africa?", ["Tunisia", "Egypt", "Morocco", "Algeria"]],
-    ["Which of the following countries does not contain the equator?", ["Venezuela", "Brazil", "Colombia", "Ecuador"]],
-    ["What is the only country with a non-quadrilateral flag?", ["Nepal", "Lebanon", "Senegal", "Madagascar"]],
-    ["Which of the following countries does NOT have coastline on both the Pacific AND Atlantic Oceans?", ["El Salvador", "Honduras", "Nicaragua", "Guatemala"]],
-    ["Which capital city is closest to New Orleans?", ["Havana, Cuba", "Nassau, Bahamas", "Washington, D.C.", "Mexico City, Mexico"]],
-    ["What country has the largest population in Europe (excluding Turkey)?", ["Germany", "France", "United Kingdom", "Italy"]],
-    ["Russia borders all of the following seas EXCEPT _______?", ["North Sea", "Baltic Sea", "Caspian Sea", "Black Sea"]],
-    ["Which city is farthest East?", ["Lima, Peru", "Quito, Ecuador", "Havana, Cuba", "Miama, USA"]],
-    ["Which of the following countries does NOT control part of the SE-Asian-island Borneo?", ["Papua New Guinea", "Brunei", "Malaysia", "Indonesia"]],
-    ["Dhaka is the capital of which country?", ["Bangladesh", "Nepal", "Laos", "Myanmar"]],
-    ["What is the capital of Ghana?", ["Accra", "Dakar", "Lagos", "Abuja"]],
+    // ["What is the deepest lake in the world?", ["Lake Baikal", "Crater Lake", "Lake Superior", "Caspian Sea"]],
+    // ["Which one of the following South American countries is landlocked?", ["Paraguay", "Uruguay", "Equador", "Peru"]],
+    // ["Which one of the following European countries is double-landlocked (all of its neighbors are also landlocked)?", ["Liechtenstein", "Andorra", "Luxembourg", "Slovakia"]],
+    // ["What is the capital of Switzerland?", ["Bern", "Zurich", "Geneva", "Basel"]],
+    // ["What portion of the world's population lives in the Southern Hemisphere?", ["12%", "16%", "20%", "8%"]],
+    // ["Which of the following countries does NOT have penguins?", ["Madagascar", "Ecuador", "Australia", "Urugauy"]],
+    // ["What portion of Africa's landmass is in the northern hemisphere?", ["60-70%", "50-60%", "40-50%", "30-40%"]],
+    // ["Kinshasa is the capital of what African nation?", ["Democratic Republic of the Congo", "Uganda", "Tanzania", "Zimbabwe"]],
+    // ["Which of the following countries does NOT share a border with Russia?", ["Sweden", "Finland", "Norway", "Estonia"]],
+    // ["Which country is home to the northernmost point in Africa?", ["Tunisia", "Egypt", "Morocco", "Algeria"]],
+    // ["Which of the following countries does not contain the equator?", ["Venezuela", "Brazil", "Colombia", "Ecuador"]],
+    // ["What is the only country with a non-quadrilateral flag?", ["Nepal", "Lebanon", "Senegal", "Madagascar"]],
+    // ["Which of the following countries does NOT have coastline on both the Pacific AND Atlantic Oceans?", ["El Salvador", "Honduras", "Nicaragua", "Guatemala"]],
+    // ["Which capital city is closest to New Orleans?", ["Havana, Cuba", "Nassau, Bahamas", "Washington, D.C.", "Mexico City, Mexico"]],
+    // ["What country has the largest population in Europe (excluding Turkey)?", ["Germany", "France", "United Kingdom", "Italy"]],
+    // ["Russia borders all of the following seas EXCEPT _______?", ["North Sea", "Baltic Sea", "Caspian Sea", "Black Sea"]],
+    // ["Which city is farthest East?", ["Lima, Peru", "Quito, Ecuador", "Havana, Cuba", "Miami, USA"]],
+    // ["Which of the following countries does NOT control part of the SE-Asian-island Borneo?", ["Papua New Guinea", "Brunei", "Malaysia", "Indonesia"]],
+    // ["Dhaka is the capital of which country?", ["Bangladesh", "Nepal", "Laos", "Myanmar"]],
+    // ["What is the capital of Ghana?", ["Accra", "Dakar", "Lagos", "Abuja"]],
     ["What is the approximate ratio of Kangaroos:Humans in Australia?", ["2:1", "1:1", "1:2", "10:1 (but only in NT)"]]
 ]);
 
 // global variables
 var timer = document.getElementById("timer");
 var qNumber = 1;
-console.log(qNumber);
 var question = "";
 var answers = [];
 var secondsLeft;
 var timerInterval;
+var highScores = [];
 
 // run compare function on click of the answer buttons
 for (let i = 0; i < 4; i++) {
@@ -45,24 +45,25 @@ function compare(selection) {
     // on correct answer sets font color to green and says 'Correct!'
     document.getElementById("alert").setAttribute ("style", "color: green; opacity: 0.4");
     document.getElementById("alert").textContent = "Correct!"
-    // has alert fade after .6 seconds
+    // has alert disappear after 1 second
     setTimeout(() => { 
       document.getElementById("alert").textContent = "";
-    }, 750);
+    }, 1000);
   } else {
     // on wrong answer sets font color to red, says 'Nope!, and deducts 10 seconds from the timer'
     document.getElementById("alert").setAttribute ("style", "color: red; opacity: 0.6"); 
     document.getElementById("alert").textContent = "Nope!";
-    secondsLeft -= 3;
+    secondsLeft -= 10;
+    // has alert disappear after 1 second
     setTimeout(() => { 
       document.getElementById("alert").textContent = "";
-    }, 750);
+    }, 1000);
   }
   // calls next question regardless
   loadQuestion();
 }
 
-// durstendfeld shuffle from stack
+// durstendfeld shuffle from stackoverflow
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -114,6 +115,10 @@ function setTime(time) {
 
 
 function endGame() {
+  // set any negative score to zero
+  if (secondsLeft < 0) {
+    secondsLeft = 0;
+  }
   // clears questions, buttons, and timer
   document.getElementById("choices").remove();
   document.getElementById("timer").remove();
@@ -123,7 +128,7 @@ function endGame() {
   document.getElementById("question").textContent = "Congrats, you scored " + secondsLeft + " points!";
   document.getElementById("sub-prompt").textContent = "Please enter your initials";
   document.getElementById("prompts").setAttribute("style", "text-align: center")
-  // call getInitials funct
+  // call getInitials func
   getInitials();
 }
 
@@ -134,20 +139,38 @@ function getInitials() {
   var label = document.createElement("label");
   section.appendChild(label);
   label.textContent = "Initials: ";
-  label.setAttribute("for", intialsInput);
+  label.setAttribute("for", initialsInput);
   // create input
-  var intialsInput = document.createElement("input");
-  section.appendChild(intialsInput);
-  intialsInput.setAttribute("type", "text");
+  var initialsInput = document.createElement("input");
+  section.appendChild(initialsInput);
+  initialsInput.setAttribute("type", "text");
+  initialsInput.setAttribute("maxlength", "3");
   // create submit button
   var submit = document.createElement("input");
   submit.setAttribute("type", "submit");
   submit.setAttribute("value", "Submit");
   submit.setAttribute("style", "margin: 10px");
   section.appendChild(submit);
+  // call function for submit button
+  submitEvent(initialsInput, submit);
 }
 
+function submitEvent(initialsInput, submit) {
+  // add submit event
+  submit.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log("submit was clicked");
+    var initials = JSON.stringify(initialsInput.value.trim());
+    // Return from function early if submitted todoText is blank
+    if (initials === "") {
+      return;
+    }
+    var newScore = [initials, secondsLeft];
+    console.log(newScore);
+    localStorage.setItem("newScore", JSON.stringify(newScore));
+    // window.location.href = "../html/highscores.html"
+  });
+}
 
-console.log(qNumber);
 loadQuestion();
-setTime(120);
+setTime(240);
