@@ -36,6 +36,7 @@ function renderScores() {
         var score = highScores[i];
         var li = document.createElement("li");
         li.textContent = score;
+        li.id = "li" + i;
         rankings.appendChild(li);
       }
 }

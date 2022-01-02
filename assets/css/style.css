@@ -68,8 +68,7 @@ main {
     
 }
 
-/* STYLING FOR game.html STARTS HERE */
-
+/* styling for game.html */
 #choices button {
     background-color: var(--dark);
     color: var(--light);
@@ -111,3 +110,17 @@ main {
     width: 300px;
     margin: auto;
 }
+
+#li0 {
+    background-color: gold;
+}
+
+#li1 {
+    background-color: silver;
+}
+
+#li2 {
+    background-color: rgb(207, 98, 98);
+
+}
+
