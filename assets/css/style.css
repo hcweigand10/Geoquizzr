@@ -152,6 +152,10 @@ main {
     border-left: 10px solid var(--light);
 }
 
+#clear {
+    font-size: 22px;
+}
+
 /* mobile layout */
 @media screen and (max-width: 560px) {
     main {
