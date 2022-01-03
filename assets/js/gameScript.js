@@ -136,14 +136,18 @@ function endGame() {
 function getInitials() {
   // get main section to attach to
   var section = document.querySelector("main");
+  // create form and append to main
+  var form = document.createElement("form");
+  form.id = "form";
+  section.appendChild(form);
   // create label
   var label = document.createElement("label");
-  section.appendChild(label);
+  form.appendChild(label);
   label.textContent = "Initials: ";
   label.setAttribute("for", initialsInput);
   // create input
   var initialsInput = document.createElement("input");
-  section.appendChild(initialsInput);
+  form.appendChild(initialsInput);
   initialsInput.setAttribute("type", "text");
   initialsInput.setAttribute("maxlength", "3");
   // create submit button
@@ -151,14 +155,15 @@ function getInitials() {
   submit.setAttribute("type", "submit");
   submit.setAttribute("value", "Submit");
   submit.setAttribute("style", "margin: 10px");
-  section.appendChild(submit);
-  // call function for submit button actions
-  submitEvent(initialsInput, submit);
+  form.appendChild(submit);
+  // call function for submit actions
+  submitEvent(initialsInput, form);
 }
 
-function submitEvent(initialsInput, submit) {
+function submitEvent(initialsInput, form) {
   // add submit event
-  submit.addEventListener("click", function(event) {
+  form.addEventListener("submit", function(event) {
+    console.log("submitted")
     event.preventDefault();
     var initials = (initialsInput.value.toUpperCase());
     // Return from function early if submitted initials are blank
