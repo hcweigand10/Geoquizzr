@@ -171,8 +171,9 @@ main {
         font-size: 18px;
     }
     header {
-        padding: 20px;
+        padding: 12px;
         margin-bottom: 15px;
+        font-size: 14px;
     }
     #playButton {
         font-size: 24px;
