@@ -178,6 +178,9 @@ main {
     #playButton {
         font-size: 20px;
     }
+    #qNumber {
+        font-size: 14px;
+    }
     #question {
         font-size: 20px;
     }
