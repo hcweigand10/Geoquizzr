@@ -177,6 +177,7 @@ main {
     }
     #playButton {
         font-size: 20px;
+        padding: 12px;
     }
     #qNumber {
         font-size: 14px;
