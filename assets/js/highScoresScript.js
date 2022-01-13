@@ -1,5 +1,4 @@
 var highScores = [];
-var storedScores = [];
 var rankings = document.getElementById("rankings");
 var clear = document.getElementById("clear");
 

@@ -106,8 +106,6 @@ function setTime(time) {
       secondsLeft--;
       timer.textContent ="Time remaining: " + secondsLeft + " seconds";
       if(secondsLeft < 1) {
-        // Stops execution of action at set interval
-        clearInterval(timerInterval);
         // Calls for endgame function to run when timer runs out
         endGame();
       }
@@ -163,7 +161,6 @@ function getInitials() {
 function submitEvent(initialsInput, form) {
   // add submit event
   form.addEventListener("submit", function(event) {
-    console.log("submitted")
     event.preventDefault();
     var initials = (initialsInput.value.toUpperCase());
     // Return from function early if submitted initials are blank

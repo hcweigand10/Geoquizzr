@@ -197,3 +197,20 @@ main {
         width: 80%;
     }
 }
+
+.fun {
+    border: 3px solid black;
+    box-shadow: 5px 5px 5px 5px black;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+}
+
+.fun ul {
+    list-style-type: none;
+}
+
+.fun h2 {
+    font-style: italic;
+    font-weight: lighter;
+}
