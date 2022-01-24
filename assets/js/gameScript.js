@@ -32,36 +32,36 @@ var secondsLeft;
 var timerInterval;
 var highScores = [];
 var totalQuestions = questionsMap.size;
+let score;
 
 // run compare function on click of the answer buttons
 for (let i = 0; i < 4; i++) {
   document.getElementById("button"+(i+1)).addEventListener("click", function() {
-    compare(this.textContent);
+    compare(this);
   });
 }
 
 // checks if answer is correct
 function compare(selection) {
-  if (selection === answers[0]) {
-    // on correct answer sets font color to green and says 'Correct!'
-    document.getElementById("alert").setAttribute ("style", "color: green; opacity: 0.4");
-    document.getElementById("alert").textContent = "Correct!"
-    // has alert disappear after 1 second
+  if (selection.textContent === answers[0]) {
+    // on correct answer change button color to light green and increment score
+    console.log(selection)
+    selection.setAttribute("style", "background-color: lightgreen")
+    score++;
+    // revert after 1 second
     setTimeout(() => { 
-      document.getElementById("alert").textContent = "";
+      selection.setAttribute("style", "background-color: --var(dark)")
     }, 1000);
   } else {
-    // on wrong answer sets font color to red, says 'Nope!, and deducts 10 seconds from the timer'
-    document.getElementById("alert").setAttribute ("style", "color: red; opacity: 0.6"); 
-    document.getElementById("alert").textContent = "Nope!";
-    secondsLeft -= 15;
-    // has alert disappear after 1 second
+    // on wrong answer set button color to red'
+    selection.setAttribute("style", "background-color: red")
+    // revert after 1 second
     setTimeout(() => { 
-      document.getElementById("alert").textContent = "";
+      selection.setAttribute("style", "background-color: --var(dark)")
     }, 1000);
   }
   // calls next question regardless
-  loadQuestion();
+  setTimeout(() => { loadQuestion();}, 1000);
 }
 
 function loadQuestion() {
@@ -100,6 +100,7 @@ function shuffleArray(array) {
 
 function setTime(time) {
     // Sets interval in variable
+    score = 0;
     secondsLeft = time;
     timer.textContent ="Time remaining: " + secondsLeft + " seconds";
     timerInterval = setInterval(function() {
@@ -124,7 +125,7 @@ function endGame() {
   clearInterval(timerInterval);
   document.getElementById("qNumber").textContent = "";
   // posts centered endgame message and ask for initials
-  document.getElementById("question").textContent = "Congrats, you scored " + secondsLeft + " points!";
+  document.getElementById("question").textContent = "Congrats, you scored " + score + " points!";
   document.getElementById("sub-prompt").textContent = "Please enter your initials";
   document.getElementById("prompts").setAttribute("style", "text-align: center")
   // call getInitials func
@@ -168,7 +169,7 @@ function submitEvent(initialsInput, form) {
       alert("Initials can't be blank");
       return;
     }
-    var newScore = [initials, secondsLeft];
+    var newScore = [initials, score];
     localStorage.setItem("newScore", JSON.stringify(newScore));
     window.location.href = "../html/highscores.html"
   });

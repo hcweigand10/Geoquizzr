@@ -201,16 +201,17 @@ main {
 .fun {
     border: 3px solid black;
     box-shadow: 5px 5px 5px 5px black;
-    width: 50%;
     margin: auto;
     padding: 10px;
+    width: 80%;
 }
 
 .fun ul {
     list-style-type: none;
 }
 
-.fun h2 {
+.fun h3 {
     font-style: italic;
     font-weight: lighter;
 }
+
