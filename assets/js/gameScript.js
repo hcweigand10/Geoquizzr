@@ -1,12 +1,12 @@
 var questionsMap = new Map([
-  ["How many countries does China border?", ["14", "12", "13", "11"]],
+  ["How many countries does China border?", ["14", "11", "8", "6"]],
   [
     "What is the deepest lake in the world?",
     ["Lake Baikal", "Crater Lake", "Lake Superior", "Caspian Sea"],
   ],
   [
     "Which one of the following South American countries is landlocked?",
-    ["Paraguay", "Uruguay", "Equador", "Peru"],
+    ["Paraguay", "Uruguay", "Ecuador", "Peru"],
   ],
   [
     "Which one of the following European countries is double-landlocked (all of its neighbors are also landlocked)?",
@@ -120,11 +120,13 @@ function compare(selection) {
       selection.setAttribute("style", "background-color: --var(dark)");
     }, 1000);
   } else {
-    // on wrong answer set button color to red'
+    // on wrong answer set button color to red and display correct answer below
     selection.setAttribute("style", "background-color: red");
+    document.getElementById("alert").textContent = `(Answer: ${answers[0]})`
     // revert after 1 second
     setTimeout(() => {
       selection.setAttribute("style", "background-color: --var(dark)");
+      document.getElementById("alert").textContent = "";
     }, 1000);
   }
   // calls next question regardless
