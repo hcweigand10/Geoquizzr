@@ -50,6 +50,7 @@ main {
     width: 50%;
     margin: auto;
     text-align: center;
+    min-height: 65vh;
 }
 
 #welcome {
@@ -199,19 +200,39 @@ main {
 }
 
 .fun {
-    border: 3px solid black;
-    box-shadow: 5px 5px 5px 5px black;
     margin: auto;
     padding: 10px;
-    width: 80%;
+    width: 65%;
+    text-align: center;
 }
 
-.fun ul {
+#ingredients {
     list-style-type: none;
+    font-size: small;
 }
 
-.fun h3 {
+#cocktail {
     font-style: italic;
     font-weight: lighter;
+}
+
+footer {
+    background-color: var(--dark);
+    margin-top: 5vh;
+    min-height: 10vh;
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: underline;
 }
 
