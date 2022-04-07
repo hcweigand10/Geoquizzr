@@ -50,7 +50,7 @@ main {
     width: 50%;
     margin: auto;
     text-align: center;
-    min-height: 65vh;
+    min-height: 71vh;
 }
 
 #welcome {
@@ -218,7 +218,7 @@ main {
 
 footer {
     background-color: var(--dark);
-    margin-top: 5vh;
+    margin-top: 2vh;
     min-height: 10vh;
     color: var(--light);
     display: flex;
